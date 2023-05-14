@@ -32,4 +32,4 @@ jobs:
 
 
       - name: Run Pylint
-        run: pylint your_app.py
+        run: pylint app.py
