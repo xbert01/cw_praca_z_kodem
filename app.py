@@ -1,14 +1,14 @@
-"""
-comment
-"""
-from flask import Flask
+from flask import Flask, render_template
+from markupsafe import escape
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
-    """
-    comment2
-    """
-    return '<h1>Hello WSB! Greetings from Flask!</h1>'
-if __name__ == "__main__":
-    app.run(debug=True)
+    return render_template('index.html')
+
+
+@app.route('/hello/')
+@app.route('/hello/<name>')
+def hello(name=None):
+    return render_template('hello.html', name=name)
